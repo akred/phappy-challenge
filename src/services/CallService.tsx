@@ -1,6 +1,4 @@
-import axios from "axios";
-
-const API_URL = "https://frontend-test-api.aircall.io";
+import {apiService, BASE_URL} from "./ApiService"
 
 /**
  * CallService
@@ -17,7 +15,7 @@ class CallService {
    * @returns
    */
   async getCalls(offset: number, limit: number) {
-    const result = await axios.get(API_URL + "/calls", { params : { offset, limit } })
+    const result = await apiService.get(BASE_URL + "/calls", { params : { offset, limit } })
     return result?.data
   }
 
@@ -27,7 +25,7 @@ class CallService {
    * @returns
    */
   async getCall(id: number) {
-    const result = await axios.get(API_URL + "/calls/${id}")
+    const result = await apiService.get(BASE_URL + "/calls/${id}")
     return result?.data
   }
 
@@ -37,8 +35,8 @@ class CallService {
    * @returns
    */
   async addNote(id: number) {
-    return await axios
-        .post(API_URL + "/calls/${id}/note")
+    return await apiService
+        .post(BASE_URL + "/calls/${id}/note")
         .then(response => {
             return response.data;
         });
@@ -50,8 +48,8 @@ class CallService {
    * @returns
    */
   async archiveCall(id: number) {
-    return await axios
-        .put(API_URL + "/calls/${id}/archive")
+    return await apiService
+        .put(BASE_URL + "/calls/${id}/archive")
         .then(response => {
             return response.data;
         });

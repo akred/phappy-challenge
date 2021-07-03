@@ -7,12 +7,15 @@ It was bootstrapped with :
 
 - [Yarn](https://classic.yarnpkg.com/en/)
 - [Create React App Typescript](https://create-react-app.dev/docs/getting-started#creating-a-typescript-app)
-
+- [Axios-auth-refresh](https://www.npmjs.com/package/axios-auth-refresh)
 ## Pre-requisites
 
 - Git
 - Node
 - Yarn
+
+## Project documentation
+The API calls are handled by axios and the token management is handle by the lovely plugin [Axios-auth-refresh](https://www.npmjs.com/package/axios-auth-refresh)
 
 # Startup
 
