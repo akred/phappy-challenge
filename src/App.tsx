@@ -1,7 +1,10 @@
 import Login from './components/Login'
+import './App.scss'
 
 export default function App() {
   return (
-    <Login />
+    <div className="phappy-container">
+      <Login />
+    </div>
   );
 }

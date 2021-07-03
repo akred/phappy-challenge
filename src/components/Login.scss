@@ -1,0 +1,10 @@
+.phappy-login {
+    text-align: center;
+
+    &__logo {
+        margin: 10px auto 40px;
+    }
+    input[type=submit] {
+        margin-top: 40px;
+    }
+}
