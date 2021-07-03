@@ -2,6 +2,10 @@ import axios from "axios";
 
 const API_URL = "https://frontend-test-api.aircall.io";
 
+/**
+ * AuthService
+ * Provide actions such as login
+ */
 class AuthService {
   async login(username: string, password: string) {
     return await axios
@@ -24,6 +28,11 @@ class AuthService {
 
   getCurrentToken() {
     return localStorage.getItem('TOKEN');
+  }
+
+  async getAuthenticatedUser() {
+    const result = await axios.get(API_URL + "/me")
+    return result?.data
   }
 }
 
