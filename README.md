@@ -8,6 +8,7 @@ It was bootstrapped with :
 - [Yarn](https://classic.yarnpkg.com/en/)
 - [Create React App Typescript](https://create-react-app.dev/docs/getting-started#creating-a-typescript-app)
 - [Axios-auth-refresh](https://www.npmjs.com/package/axios-auth-refresh)
+- [Bulma](https://bulma.io/documentation/overview/)
 ## Pre-requisites
 
 - Git
