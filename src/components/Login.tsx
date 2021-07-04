@@ -1,7 +1,7 @@
 import React, { useReducer, useEffect } from "react";
 import AuthService from "../services/AuthService";
 import "./Login.scss";
-import logo from "../img/aircall-logo.svg";
+import Logo from "../img/aircall-logo.svg";
 import classNames from 'classnames';
 
 //state type
@@ -132,16 +132,15 @@ const Login = () => {
 
   return (
     <div className="phappy-login container">
-      <form className="box" noValidate autoComplete="off">
+      <form className="box">
         <div className="phappy-login__logo">
-          <img src={logo} alt="Aircall" />
+          <img src={Logo} alt="Aircall" />
         </div>
         <div className="field">
           <p className="control has-icons-left has-icons-right">
             <input
               id="username"
               className="input"
-              type="email"
               placeholder="Username"
               onChange={handleUsernameChange}
               onKeyPress={handleKeyPress}

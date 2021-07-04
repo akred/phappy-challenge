@@ -50,15 +50,15 @@ class ApiService {
     }
 
     post<T = any, R = AxiosResponse<T>>(url: string, data?: any, config?: AxiosRequestConfig): Promise<R> {
-        return this.instance.post(url, config)
+        return this.instance.post(url, data, config)
     }
 
     put<T = any, R = AxiosResponse<T>>(url: string, data?: any, config?: AxiosRequestConfig): Promise<R> {
-        return this.instance.put(url, config)
+        return this.instance.put(url, data, config)
     }
 
     patch<T = any, R = AxiosResponse<T>>(url: string, data?: any, config?: AxiosRequestConfig): Promise<R> {
-        return this.instance.patch(url, config)
+        return this.instance.patch(url, data, config)
     }
 }
 
