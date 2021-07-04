@@ -1,5 +1,4 @@
-import {apiService, BASE_URL, TOKEN} from "./ApiService"
-
+import { apiService, BASE_URL, TOKEN } from "./ApiService"
 
 /**
  * AuthService
@@ -18,6 +17,12 @@ class AuthService {
         }
 
         return response.data;
+      })
+      .catch((err) => {
+        return {
+          error: err,
+          message: "Cannot login, service unavaiblable",
+        };
       });
   }
 
@@ -30,8 +35,17 @@ class AuthService {
   }
 
   async getAuthenticatedUser() {
-    const result = await apiService.get(BASE_URL + "/me")
-    return result?.data
+    return apiService
+      .get(BASE_URL + "/me")
+      .then((response) => {
+        return response.data;
+      })
+      .catch((err) => {
+        return {
+          error: err,
+          message: "Cannot login, service unavaiblable",
+        };
+      });
   }
 }
 

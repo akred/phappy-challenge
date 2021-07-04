@@ -1,8 +1,8 @@
-import React, { useReducer, useEffect } from "react";
-import AuthService from "../services/AuthService";
-import "./Login.scss";
-import Logo from "../img/aircall-logo.svg";
-import classNames from 'classnames';
+import React, { useReducer, useEffect, useState } from "react"
+import AuthService from "../services/AuthService"
+import "./Login.scss"
+import Logo from "../img/aircall-logo.svg"
+import classNames from 'classnames'
 
 //state type
 type State = {
@@ -83,8 +83,9 @@ const Login = () => {
     }
   }, [state.username, state.password]);
 
-  const handleLogin = () => {
-    AuthService.login(state.username, state.password)
+  const handleSubmit = async (e: any) => {
+    e.preventDefault();
+    return AuthService.login(state.username, state.password)
       .then((response) => {
         if (response?.statusCode !== 401) {
           dispatch({
@@ -108,7 +109,7 @@ const Login = () => {
 
   const handleKeyPress = (event: React.KeyboardEvent) => {
     if (event.key === "Enter") {
-      state.isButtonDisabled || handleLogin();
+      state.isButtonDisabled || handleSubmit(event);
     }
   };
 
@@ -132,7 +133,7 @@ const Login = () => {
 
   return (
     <div className="phappy-login container">
-      <form className="box">
+      <form className="box" onSubmit={handleSubmit}>
         <div className="phappy-login__logo">
           <img src={Logo} alt="Aircall" />
         </div>
@@ -182,7 +183,6 @@ const Login = () => {
           className="button is-primary is-fullwidth"
           type="submit"
           value="Sign In"
-          onClick={handleLogin}
           disabled={state.isButtonDisabled}
         />
       </form>
