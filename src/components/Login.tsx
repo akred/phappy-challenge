@@ -1,8 +1,10 @@
-import React, { useReducer, useEffect, useState } from "react"
+import {CALL_LIST_URL} from '../helpers/urls'
+import React, { useReducer, useEffect } from "react"
 import AuthService from "../services/AuthService"
 import "./Login.scss"
 import Logo from "../img/aircall-logo.svg"
 import classNames from 'classnames'
+import { Redirect } from 'react-router-dom'
 
 //state type
 type State = {
@@ -69,6 +71,9 @@ const reducer = (state: State, action: Action): State => {
 const Login = () => {
   const [state, dispatch] = useReducer(reducer, initialState);
 
+  /**
+   * Button submit state management
+   */
   useEffect(() => {
     if (state.username.trim() && state.password.trim()) {
       dispatch({
@@ -83,6 +88,11 @@ const Login = () => {
     }
   }, [state.username, state.password]);
 
+  /**
+   * Make API Call to login the user
+   * @param e event
+   * @returns
+   */
   const handleSubmit = async (e: any) => {
     e.preventDefault();
     return AuthService.login(state.username, state.password)
@@ -107,6 +117,10 @@ const Login = () => {
       });
   };
 
+  /**
+   * Events management
+   */
+
   const handleKeyPress = (event: React.KeyboardEvent) => {
     if (event.key === "Enter") {
       state.isButtonDisabled || handleSubmit(event);
@@ -130,6 +144,16 @@ const Login = () => {
       payload: event.target.value,
     });
   };
+
+
+  /**
+   * Rendering part
+   */
+  if (AuthService.isAuthenticated()) {
+    return (
+      <Redirect to={CALL_LIST_URL} />
+    )
+  }
 
   return (
     <div className="phappy-login container">

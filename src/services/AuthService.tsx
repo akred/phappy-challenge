@@ -47,6 +47,24 @@ class AuthService {
         };
       });
   }
+
+  isAuthenticated() {
+    return true
+    // let isAuthenticated = false
+    // apiService
+    //   .get(BASE_URL + "/me")
+    //   .then((response) => {
+    //     console.log(JSON.stringify(response, null, 2))
+    //     return true;
+    //   })
+    //   .catch(() => {
+    //     return false;
+    //   })
+    // .then((response) => {
+    //   isAuthenticated = response
+    // });
+    // return isAuthenticated
+  }
 }
 
 export default new AuthService();

@@ -1,7 +1,5 @@
-import React from 'react';
+import React from "react";
 
 export default function CallList() {
-  return(
-    <h2>CallList</h2>
-  );
+  return <h2>CallList</h2>;
 }
