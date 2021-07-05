@@ -1,4 +1,5 @@
-import { apiService, BASE_URL, TOKEN } from "./ApiService"
+import { apiService, BASE_URL, TOKEN } from "./ApiService";
+import isEmpty from "lodash/isEmpty";
 
 /**
  * AuthService
@@ -11,9 +12,9 @@ class AuthService {
         username,
         password
       })
-      .then(response => {
+      .then((response) => {
         if (response.data.access_token) {
-          localStorage.setItem(TOKEN, JSON.stringify(response.data.access_token));
+          localStorage.setItem(TOKEN, response.data.access_token);
         }
 
         return response.data;
@@ -30,7 +31,7 @@ class AuthService {
     localStorage.removeItem(TOKEN);
   }
 
-  getCurrentToken() {
+  getCurrentToken(): string | null {
     return localStorage.getItem(TOKEN);
   }
 
@@ -49,21 +50,7 @@ class AuthService {
   }
 
   isAuthenticated() {
-    return true
-    // let isAuthenticated = false
-    // apiService
-    //   .get(BASE_URL + "/me")
-    //   .then((response) => {
-    //     console.log(JSON.stringify(response, null, 2))
-    //     return true;
-    //   })
-    //   .catch(() => {
-    //     return false;
-    //   })
-    // .then((response) => {
-    //   isAuthenticated = response
-    // });
-    // return isAuthenticated
+    return !isEmpty(this.getCurrentToken());
   }
 }
 

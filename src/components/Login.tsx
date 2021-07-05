@@ -4,7 +4,7 @@ import AuthService from "../services/AuthService"
 import "./Login.scss"
 import Logo from "../img/aircall-logo.svg"
 import classNames from 'classnames'
-import { Redirect } from 'react-router-dom'
+import { useHistory } from 'react-router-dom'
 
 //state type
 type State = {
@@ -68,13 +68,19 @@ const reducer = (state: State, action: Action): State => {
   }
 };
 
+/**
+ * Login page
+ */
 const Login = () => {
   const [state, dispatch] = useReducer(reducer, initialState);
+  const history = useHistory();
+  const goToCallListPage = () => history.push(CALL_LIST_URL);
 
   /**
    * Button submit state management
    */
   useEffect(() => {
+    // Button submit state management
     if (state.username.trim() && state.password.trim()) {
       dispatch({
         type: "setIsButtonDisabled",
@@ -102,6 +108,7 @@ const Login = () => {
             type: "loginSuccess",
             payload: "Login Successfully",
           });
+          goToCallListPage();
         } else {
           dispatch({
             type: "loginFailed",
@@ -146,18 +153,10 @@ const Login = () => {
   };
 
 
-  /**
-   * Rendering part
-   */
-  if (AuthService.isAuthenticated()) {
-    return (
-      <Redirect to={CALL_LIST_URL} />
-    )
-  }
 
   return (
     <div className="phappy-login container">
-      <form className="box" onSubmit={handleSubmit}>
+      <form className="box" autoComplete="off" onSubmit={handleSubmit}>
         <div className="phappy-login__logo">
           <img src={Logo} alt="Aircall" />
         </div>

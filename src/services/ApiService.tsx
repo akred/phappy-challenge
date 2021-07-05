@@ -11,12 +11,16 @@ class ApiService {
     instance: AxiosInstance;
 
     public constructor(baseURL: string) {
+        const token = localStorage.getItem(TOKEN);
         this.instance = axios.create({
             baseURL: baseURL,
-            headers: { 'Content-type': 'application/json' },
+            headers: {
+                'Content-type': 'application/json',
+                ...(token && { Authorization: `Bearer ${token}` })
+            },
         });
         // Function that will be called to refresh authorization
-        const refreshAuthLogic = (failedRequest: any) => axios.post(baseURL + '/auth/refresh-token').then(tokenRefreshResponse => {
+        const refreshAuthLogic = (failedRequest: any) => this.instance.post(baseURL + '/auth/refresh-token').then(tokenRefreshResponse => {
             localStorage.setItem(TOKEN, tokenRefreshResponse.data.access_token);
             failedRequest.response.config.headers['Authorization'] = 'Bearer ' + tokenRefreshResponse.data.token;
             return Promise.resolve();
