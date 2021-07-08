@@ -1,5 +1,12 @@
-import React from "react";
+import CallItem from "./CallItem";
 
-export default function CallList() {
-  return <h2>CallList</h2>;
-}
+export const CallList = () => {
+  return (
+    <div className="phappy-call-list">
+      <h1 className="title">Call list</h1>
+      <CallItem />
+    </div>
+  );
+};
+
+export default CallList;
