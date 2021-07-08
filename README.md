@@ -8,14 +8,14 @@ It was bootstrapped with :
 - [Create React App Typescript](https://create-react-app.dev/docs/getting-started#creating-a-typescript-app)
 - [Axios-auth-refresh](https://www.npmjs.com/package/axios-auth-refresh)
 - [Bulma](https://bulma.io/documentation/overview/)
-- [Font Awesome 4.7.0](https://fontawesome.com/)
+- [Font Awesome 5.15.3](https://fontawesome.com/)
 - [SASS 4.14.1](https://github.com/sass/node-sass)
 - [Classnames](https://github.com/JedWatson/classnames)
 
 ## Pre-requisites
 
 - Git
-- Node
+- Node (__version 12 min required__)
 - Yarn
 
 ## Project documentation

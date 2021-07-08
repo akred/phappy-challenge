@@ -169,7 +169,7 @@ const Login = () => {
               data-error={state.isError}
             />
             <span className="icon is-small is-left">
-              <i className="fa fa-user"></i>
+              <i className="fas fa-user"></i>
             </span>
             <span className="icon is-small is-right">
             <i className={classNames("fa", {
@@ -191,10 +191,10 @@ const Login = () => {
               data-error={state.isError}
             />
             <span className="icon is-small is-left">
-              <i className="fa fa-lock"></i>
+              <i className="fas fa-lock"></i>
             </span>
             <span className="icon is-small is-right">
-              <i className={classNames("fa", {
+              <i className={classNames("fas", {
                   "fa-check": !!state.password
               })}></i>
             </span>
