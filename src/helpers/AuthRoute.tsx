@@ -1,6 +1,7 @@
 import React from "react";
 import { Route, Redirect } from "react-router-dom";
 import { useAuth } from "./AppContext";
+import { LOGIN_URL } from "./urls";
 
 /**
  * This function component manage the redirection if user is logged or not
@@ -23,7 +24,7 @@ const AuthRoute: React.FC<{
       />
     );
   } else {
-    return <Redirect to="LOGIN_URL" />;
+    return <Redirect to={LOGIN_URL} />;
   }
 };
 export default AuthRoute;
