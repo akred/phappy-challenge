@@ -10,28 +10,24 @@ import {
   CALL_DETAIL_URL,
   LOGOUT_URL,
 } from "./helpers/urls";
-import AppContext from "./helpers/AppContext";
-import AuthService from "./services/AuthService";
+import { ProvideAuth } from "./helpers/AppContext";
 
 export default function App() {
   return (
     <div className="phappy-container container">
-      <AppContext.Provider
-        value={{ isAuthenticated: AuthService.isAuthenticated() }}
-      >
+      <ProvideAuth>
         <BrowserRouter>
           <Switch>
             <Redirect exact from="/" to={LOGIN_URL} />
             <Route path={LOGIN_URL}>
               <Login />
             </Route>
-            <AuthRoute path={LOGIN_URL} component={Login} />
             <AuthRoute path={LOGOUT_URL} component={Login} />
             <AuthRoute path={CALL_LIST_URL} component={CallList} />
             <AuthRoute path={CALL_DETAIL_URL} component={CallDetail} />
           </Switch>
         </BrowserRouter>
-      </AppContext.Provider>
+      </ProvideAuth>
     </div>
   );
 }
