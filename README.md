@@ -1,6 +1,5 @@
 # Phappy Challenge
 
-
 This small application simulates a web app managing calls and some related functionalities.
 
 It was bootstrapped with :
@@ -20,6 +19,8 @@ It was bootstrapped with :
 - Yarn
 
 ## Project documentation
+
+It's mainly built with Typescript and the store is manage by `React context and hooks`
 The API calls are handled by axios and the token management is handle by the lovely plugin [Axios-auth-refresh](https://www.npmjs.com/package/axios-auth-refresh)
 
 # Startup
@@ -61,3 +62,4 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 
 - [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 - [React documentation](https://reactjs.org/).
+- Special thanks to [fettblog](https://fettblog.eu/) for the understanding of React.js :)

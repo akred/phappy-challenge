@@ -152,8 +152,6 @@ const Login = () => {
     });
   };
 
-
-
   return (
     <div className="phappy-login container">
       <form className="box" autoComplete="off" onSubmit={handleSubmit}>
