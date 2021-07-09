@@ -11,6 +11,7 @@ It was bootstrapped with :
 - [Font Awesome 5.15.3](https://fontawesome.com/)
 - [SASS 4.14.1](https://github.com/sass/node-sass)
 - [Classnames](https://github.com/JedWatson/classnames)
+- [Moment](https://momentjs.com)
 
 ## Pre-requisites
 
@@ -62,4 +63,4 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 
 - [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 - [React documentation](https://reactjs.org/).
-- Special thanks to [fettblog](https://fettblog.eu/) for the understanding of React.js :)
+- Special thanks to [fettblog.eu](https://fettblog.eu/) for the understanding of React.js :)
