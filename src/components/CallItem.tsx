@@ -42,6 +42,14 @@ const CallItem = (call: ICall) => {
                   })}
                 ></i>
                 <div className="detail">{formatDetail(call)}</div>
+                <button
+                  className={classNames("button is-small is-outlined", {
+                    "is-danger": !isArchived(call),
+                    "is-info": isArchived(call),
+                  })}
+                >
+                  {isArchived(call) ? "Unarchive" : "Archive"}
+                </button>
               </div>
             </span>
           </div>

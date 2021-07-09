@@ -16,4 +16,10 @@
         overflow: hidden;
         white-space: nowrap;
     }
+    .button {
+        float: right;
+    }
+    .button.is-small {
+        font-size: 0.60rem;
+    }
 }
