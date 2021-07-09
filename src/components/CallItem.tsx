@@ -20,6 +20,15 @@ const CallItem = (call: ICall) => {
   const formatDetail = ({ to, created_at }: ICall) => {
     return "From : " + to + ", at " + created_at;
   };
+  const archiveButton = (call : ICall) => {
+    return !isArchived(call) && (
+      <button className="button is-small is-inverted is-danger" title="Archive">
+        <span className="icon">
+          <i className="fas fa-archive"></i>
+        </span>
+      </button>
+    );
+  };
   return (
     <div className="phappy-call-item">
       <div className="card">
@@ -35,21 +44,16 @@ const CallItem = (call: ICall) => {
                   "has-text-grey": isArchived(call),
                 })}
               >
-                {call.from}{" "}
                 <i
                   className={classNames({
-                    "far fa-sticky-note": hasNote(call),
+                    "far fa-sticky-note fa-fw has-text-primary-dark": hasNote(call),
                   })}
                 ></i>
-                <div className="detail">{formatDetail(call)}</div>
-                <button
-                  className={classNames("button is-small is-outlined", {
-                    "is-danger": !isArchived(call),
-                    "is-info": isArchived(call),
-                  })}
-                >
-                  {isArchived(call) ? "Unarchive" : "Archive"}
-                </button>
+                {call.from}{" "}
+                <div className="detail">
+                  <div className="detail-line">{formatDetail(call)}</div>
+                  {archiveButton(call)}
+                </div>
               </div>
             </span>
           </div>
