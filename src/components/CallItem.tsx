@@ -1,6 +1,7 @@
 import "./CallItem.scss";
 import CallIcon from "./CallIcon";
 import classNames from "classnames";
+import moment from "moment";
 
 /**
  * Call item on the call list
@@ -18,7 +19,7 @@ const CallItem = (call: ICall) => {
   };
 
   const formatDetail = ({ to, created_at }: ICall) => {
-    return "From : " + to + ", at " + created_at;
+    return "From " + to + " / " + moment(created_at.toString()).format('MMMM DD, h:mm A');
   };
   const archiveButton = (call : ICall) => {
     return !isArchived(call) && (
