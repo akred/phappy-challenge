@@ -1,11 +1,19 @@
 .phappy-call-item {
+    .card-content {
+        padding: 1rem;
+    }
     .icon {
         font-size: 30px;
     }
     .sender {
-        margin-left: 20px;
+        margin-left: 10px;
+        font-size: 14px;
     }
     .detail {
         font-size: 12px;
+        width: 290px;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
     }
 }

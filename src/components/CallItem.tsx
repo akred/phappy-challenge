@@ -1,60 +1,49 @@
 import "./CallItem.scss";
 import CallIcon from "./CallIcon";
+import classNames from "classnames";
+
 /**
  * Call item on the call list
  */
-const CallItem = () => {
+const CallItem = (call: ICall) => {
+  const hasNote = ({ notes }: ICall) => {
+    return notes.length != 0;
+  };
+
+  const isArchived = ({ is_archived }: ICall) => {
+    return is_archived.valueOf();
+  };
+  const isIncoming = ({ direction }: ICall) => {
+    return direction === "inbound";
+  };
+
+  const formatDetail = ({ to, created_at }: ICall) => {
+    return "From : " + to + ", at " + created_at;
+  };
   return (
     <div className="phappy-call-item">
       <div className="card">
         <div className="card-content">
           <div className="content">
-            <div className="icon-text">
-              <CallIcon disabled incoming />
-              <div className="sender">
-                Jean Castex
-                <div className="detail">14:34</div>
+            <span className="icon-text is-small">
+              <CallIcon
+                disabled={isArchived(call)}
+                incoming={isIncoming(call)}
+              />
+              <div
+                className={classNames("sender", {
+                  "has-text-grey": isArchived(call),
+                })}
+              >
+                {call.from}{" "}
+                <i
+                  className={classNames({
+                    "far fa-sticky-note": hasNote(call),
+                  })}
+                ></i>
+                <div className="detail">{formatDetail(call)}</div>
               </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div className="card">
-        <div className="card-content">
-          <div className="content">
-            <div className="icon-text">
-              <CallIcon />
-              <div className="sender">
-                Superman
-                <div className="detail">21:15</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div className="card">
-        <div className="card-content">
-          <div className="content">
-            <div className="icon-text">
-              <CallIcon incoming={false}/>
-              <div className="sender">
-                Ironman
-                <div className="detail">13:13</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div className="card">
-        <div className="card-content">
-          <div className="content">
-            <div className="icon-text">
-              <CallIcon voicemail />
-              <div className="sender">
-                King Kong
-                <div className="detail">08:15</div>
-              </div>
-            </div>
+            </span>
           </div>
         </div>
       </div>
