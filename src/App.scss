@@ -1,5 +1,7 @@
 .phappy-container {
   margin: 100px auto 50px;
   width: 400px;
-  text-align: center;
+  .title {
+    text-align: center;
+  }
 }
