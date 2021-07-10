@@ -31,10 +31,6 @@ class AuthService {
     localStorage.removeItem(TOKEN);
   }
 
-  getCurrentToken(): string | null {
-    return localStorage.getItem(TOKEN);
-  }
-
   async getAuthenticatedUser() {
     return apiService
       .get(BASE_URL + "/me")
@@ -50,7 +46,7 @@ class AuthService {
   }
 
   isAuthenticated() {
-    return !isEmpty(this.getCurrentToken());
+    return !isEmpty(localStorage.getItem(TOKEN));
   }
 }
 
