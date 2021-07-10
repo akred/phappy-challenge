@@ -2,6 +2,7 @@ import "./CallItem.scss";
 import CallIcon from "./CallIcon";
 import classNames from "classnames";
 import moment from "moment";
+import ArchiveButton from "./action-buttons/ArchiveButton"
 
 /**
  * Call item on the call list
@@ -34,26 +35,6 @@ const CallItem = (call: ICall) => {
       moment(call.created_at.toString()).format("MMMM DD, h:mm A")
     );
   };
-  const archiveButton = (call: ICall) => {
-    return (
-      <button
-        className={classNames("button is-small", {
-          "is-inverted is-danger": !isArchived(),
-          "is-light": isArchived(),
-        })}
-        title={isArchived() ? "Unarchive" : "Archive"}
-      >
-        <span className="icon">
-          <i
-            className={classNames({
-              "fas fa-box": !isArchived(),
-              "fas fa-box-open": isArchived(),
-            })}
-          ></i>
-        </span>
-      </button>
-    );
-  };
   return (
     <div className="phappy-call-item">
       <div className="card">
@@ -78,7 +59,7 @@ const CallItem = (call: ICall) => {
                 {call.from}{" "}
                 <div className="detail">
                   <div className="detail-line">{formatDetail()}</div>
-                  {archiveButton(call)}
+                  <ArchiveButton isArchived={isArchived()}/>
                 </div>
               </div>
             </span>
