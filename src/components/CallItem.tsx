@@ -18,10 +18,15 @@ const CallItem = (call: ICall) => {
     return direction === "inbound";
   };
 
-  const formatDetail = ({ to, created_at }: ICall) => {
+  const formatDetail = ({ from, to, direction, call_type, created_at }: ICall) => {
+    let text
+    if (direction === "inbound") {
+      text = (call_type === "answered")  ? ("called "  + to) : ("tried to call "  + to)
+    } else {
+      text = (call_type === "answered")  ? ("called "  + from) : ("tried to call "  + from)
+    }
     return (
-      "From " +
-      to +
+      text +
       " / " +
       moment(created_at.toString()).format("MMMM DD, h:mm A")
     );
