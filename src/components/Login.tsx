@@ -1,10 +1,11 @@
-import {CALL_LIST_URL} from '../helpers/urls'
-import React, { useReducer, useEffect } from "react"
-import AuthService from "../services/AuthService"
-import "./Login.scss"
-import Logo from "../img/aircall-logo.svg"
-import classNames from 'classnames'
-import { useHistory } from 'react-router-dom'
+import { CALL_LIST_URL } from "../helpers/urls";
+import React, { useReducer, useEffect } from "react";
+import AuthService from "../services/AuthService";
+import "./Login.scss";
+import Logo from "../img/aircall-logo.svg";
+import classNames from "classnames";
+import { useHistory } from "react-router-dom";
+import { useAuth } from "../helpers/AppContext";
 
 //state type
 type State = {
@@ -75,6 +76,7 @@ const Login = () => {
   const [state, dispatch] = useReducer(reducer, initialState);
   const history = useHistory();
   const goToCallListPage = () => history.push(CALL_LIST_URL);
+  const { setIsAuthenticated } = useAuth();
 
   /**
    * Button submit state management
@@ -108,6 +110,7 @@ const Login = () => {
             type: "loginSuccess",
             payload: "Login Successfully",
           });
+          setIsAuthenticated(true);
           goToCallListPage();
         } else {
           dispatch({
@@ -172,9 +175,11 @@ const Login = () => {
               <i className="fas fa-user"></i>
             </span>
             <span className="icon is-small is-right">
-            <i className={classNames("fa", {
-                  "fa-check": !!state.username
-              })}></i>
+              <i
+                className={classNames("fa", {
+                  "fa-check": !!state.username,
+                })}
+              ></i>
             </span>
           </p>
         </div>
@@ -194,9 +199,11 @@ const Login = () => {
               <i className="fas fa-lock"></i>
             </span>
             <span className="icon is-small is-right">
-              <i className={classNames("fas", {
-                  "fa-check": !!state.password
-              })}></i>
+              <i
+                className={classNames("fas", {
+                  "fa-check": !!state.password,
+                })}
+              ></i>
             </span>
           </p>
         </div>

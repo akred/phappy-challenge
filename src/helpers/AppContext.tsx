@@ -1,4 +1,4 @@
-import { ReactNode, createContext, useContext } from "react";
+import { ReactNode, createContext, useContext, useState } from "react";
 import AuthService from "../services/AuthService";
 
 /**
@@ -7,25 +7,33 @@ import AuthService from "../services/AuthService";
  */
 
 type ProvideAuthProps = {
-  children: ReactNode
-}
-
-const authContext = createContext({ isAuthenticated : false });
-
-const useProvideAuth = () => {
-  return { isAuthenticated : AuthService.isAuthenticated() };
-}
-
-// Provider component that wraps your app and makes auth object ...
-// ... available to any child component that calls useAuth().
-export const ProvideAuth =  (props: ProvideAuthProps) => {
-  const { children } = props;
-  const auth = useProvideAuth();
-  return <authContext.Provider value={auth}>{children}</authContext.Provider>;
+  children: ReactNode;
 };
+
+export type ContextType = {
+  isAuthenticated: boolean;
+  setIsAuthenticated: (isAuthenticated: boolean) => void;
+};
+
+export const authContext = createContext<ContextType>({
+  isAuthenticated: false,
+  setIsAuthenticated: () => {},
+});
 
 // Hook for child components to get the auth object ...
 // ... and re-render when it changes.
-export const useAuth = () =>  {
-  return useContext(authContext);
-}
+export const useAuth = () => useContext(authContext);
+
+// Provider component that wraps your app and makes auth object ...
+// ... available to any child component that calls useAuth().
+export const ProvideAuth = (props: ProvideAuthProps) => {
+  const { children } = props;
+  const [isAuthenticated, setIsAuthenticated] = useState<boolean>(
+    AuthService.isAuthenticated()
+  );
+  return (
+    <authContext.Provider value={{ isAuthenticated, setIsAuthenticated }}>
+      {children}
+    </authContext.Provider>
+  );
+};

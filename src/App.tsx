@@ -12,8 +12,12 @@ import {
   LOGOUT_URL,
 } from "./helpers/urls";
 import { ProvideAuth } from "./helpers/AppContext";
+import { useAuth } from "./helpers/AppContext";
+import AuthService from "./services/AuthService";
 
 export default function App() {
+  const { setIsAuthenticated } = useAuth()
+  setIsAuthenticated(AuthService.isAuthenticated())
   return (
     <div className="phappy-container container">
       <ProvideAuth>
@@ -23,7 +27,7 @@ export default function App() {
             <Route path={LOGIN_URL}>
               <Login />
             </Route>
-            <AuthRoute path={LOGOUT_URL} component={Login} />
+            <AuthRoute path={LOGOUT_URL} component={Logout} />
             <AuthRoute path={CALL_LIST_URL} component={CallList} />
             <AuthRoute path={CALL_DETAIL_URL} component={CallDetail} />
           </Switch>

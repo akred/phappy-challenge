@@ -1,14 +1,15 @@
-import { Redirect, Route } from 'react-router-dom'
+import { Redirect } from 'react-router-dom'
 import AuthService from '../services/AuthService'
 import { LOGIN_URL } from '../helpers/urls'
+import { useAuth } from "../helpers/AppContext";
 
 const Logout = () => {
+    const { setIsAuthenticated } = useAuth();
+    setIsAuthenticated(false);
+    AuthService.logout();
     return (
         <div>
-            <Route exact path="/logout">
-                {AuthService.logout()}
-                <Redirect to={LOGIN_URL} />
-            </Route>
+            <Redirect to={LOGIN_URL} />
         </div>
     );
 }
