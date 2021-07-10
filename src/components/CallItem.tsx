@@ -53,8 +53,8 @@ const CallItem = (call: ICall) => {
               >
                 <i
                   className={classNames({
-                    "far fa-sticky-note fa-fw has-text-primary-dark":
-                      hasNote(),
+                    "far fa-sticky-note fa-fw has-text-primary-dark": hasNote() && !isArchived(),
+                    "far fa-sticky-note fa-fw": hasNote() && isArchived(),
                   })}
                 ></i>
                 {call.from}{" "}
