@@ -7,44 +7,47 @@ import moment from "moment";
  * Call item on the call list
  */
 const CallItem = (call: ICall) => {
-  const hasNote = ({ notes }: ICall) => {
-    return notes.length != 0;
+  const hasNote = () : boolean => {
+    return call?.notes.length != 0;
   };
 
-  const isArchived = ({ is_archived }: ICall) => {
-    return is_archived.valueOf();
+  const isArchived = () : boolean => {
+    return call?.is_archived.valueOf();
   };
-  const isIncoming = ({ direction }: ICall) => {
-    return direction === "inbound";
+  const isIncoming = () : boolean => {
+    return call?.direction === "inbound";
+  };
+  const isAnswered = () : boolean => {
+    return call?.call_type === "answered";
   };
 
-  const formatDetail = ({ from, to, direction, call_type, created_at }: ICall) => {
+  const formatDetail = () : string => {
     let text
-    if (direction === "inbound") {
-      text = (call_type === "answered")  ? ("called "  + to) : ("tried to call "  + to)
+    if (call.direction === "inbound") {
+      text = isAnswered()  ? ("called "  + call.to) : ("tried to call "  + call.to)
     } else {
-      text = (call_type === "answered")  ? ("called "  + from) : ("tried to call "  + from)
+      text = isAnswered()  ? ("called "  + call.from) : ("tried to call "  + call.from)
     }
     return (
       text +
       " / " +
-      moment(created_at.toString()).format("MMMM DD, h:mm A")
+      moment(call.created_at.toString()).format("MMMM DD, h:mm A")
     );
   };
   const archiveButton = (call: ICall) => {
     return (
       <button
         className={classNames("button is-small", {
-          "is-inverted is-danger": !isArchived(call),
-          "is-light": isArchived(call),
+          "is-inverted is-danger": !isArchived(),
+          "is-light": isArchived(),
         })}
-        title={isArchived(call) ? "Unarchive" : "Archive"}
+        title={isArchived() ? "Unarchive" : "Archive"}
       >
         <span className="icon">
           <i
             className={classNames({
-              "fas fa-box": !isArchived(call),
-              "fas fa-box-open": isArchived(call),
+              "fas fa-box": !isArchived(),
+              "fas fa-box-open": isArchived(),
             })}
           ></i>
         </span>
@@ -58,23 +61,23 @@ const CallItem = (call: ICall) => {
           <div className="content">
             <span className="icon-text is-small">
               <CallIcon
-                disabled={isArchived(call)}
-                incoming={isIncoming(call)}
+                disabled={isArchived()}
+                incoming={isIncoming()}
               />
               <div
                 className={classNames("sender", {
-                  "has-text-grey": isArchived(call),
+                  "has-text-grey": isArchived(),
                 })}
               >
                 <i
                   className={classNames({
                     "far fa-sticky-note fa-fw has-text-primary-dark":
-                      hasNote(call),
+                      hasNote(),
                   })}
                 ></i>
                 {call.from}{" "}
                 <div className="detail">
-                  <div className="detail-line">{formatDetail(call)}</div>
+                  <div className="detail-line">{formatDetail()}</div>
                   {archiveButton(call)}
                 </div>
               </div>
