@@ -3,6 +3,7 @@ import CallIcon from "./CallIcon";
 import classNames from "classnames";
 import moment from "moment";
 import ArchiveButton from "./action-buttons/ArchiveButton"
+import DetailButton from "./action-buttons/DetailButton";
 
 /**
  * Call item on the call list
@@ -59,6 +60,7 @@ const CallItem = (call: ICall) => {
                 {call.from}{" "}
                 <div className="detail">
                   <div className="detail-line">{formatDetail()}</div>
+                  <DetailButton id={call._id} />
                   <ArchiveButton isArchived={isArchived()}/>
                 </div>
               </div>
