@@ -19,13 +19,29 @@ const CallItem = (call: ICall) => {
   };
 
   const formatDetail = ({ to, created_at }: ICall) => {
-    return "From " + to + " / " + moment(created_at.toString()).format('MMMM DD, h:mm A');
+    return (
+      "From " +
+      to +
+      " / " +
+      moment(created_at.toString()).format("MMMM DD, h:mm A")
+    );
   };
-  const archiveButton = (call : ICall) => {
-    return !isArchived(call) && (
-      <button className="button is-small is-inverted is-danger" title="Archive">
+  const archiveButton = (call: ICall) => {
+    return (
+      <button
+        className={classNames("button is-small", {
+          "is-inverted is-danger": !isArchived(call),
+          "is-light": isArchived(call),
+        })}
+        title={isArchived(call) ? "Unarchive" : "Archive"}
+      >
         <span className="icon">
-          <i className="fas fa-archive"></i>
+          <i
+            className={classNames({
+              "fas fa-box": !isArchived(call),
+              "fas fa-box-open": isArchived(call),
+            })}
+          ></i>
         </span>
       </button>
     );
@@ -47,7 +63,8 @@ const CallItem = (call: ICall) => {
               >
                 <i
                   className={classNames({
-                    "far fa-sticky-note fa-fw has-text-primary-dark": hasNote(call),
+                    "far fa-sticky-note fa-fw has-text-primary-dark":
+                      hasNote(call),
                   })}
                 ></i>
                 {call.from}{" "}
