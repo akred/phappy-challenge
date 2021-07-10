@@ -4,17 +4,17 @@
  * is “declaration merging” which means you can define the same interface several times and with each definition, the properties get merged
  */
 interface INote {
-    _id: ID! // "unique ID of the note"
-    content: String! // content of the note
+  id: !ID; // "unique ID of the note"
+  content: !String; // content of the note
 }
 
 interface NoteProps {
-    note: INote
+  note: INote;
 }
 
 type ApiDataType = {
-    message: string
-    status: string
-    notes: INote[]
-    note?: INote
-}
+  message: string;
+  status: string;
+  notes: INote[];
+  note?: INote;
+};

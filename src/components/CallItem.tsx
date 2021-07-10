@@ -10,7 +10,7 @@ import DetailButton from "./action-buttons/DetailButton";
  */
 const CallItem = (call: ICall) => {
   const hasNote = () : boolean => {
-    return call?.notes.length != 0;
+    return call?.notes.length !== 0;
   };
 
   const isArchived = () : boolean => {
@@ -60,7 +60,7 @@ const CallItem = (call: ICall) => {
                 {call.from}{" "}
                 <div className="detail">
                   <div className="detail-line">{formatDetail()}</div>
-                  <DetailButton id={call._id} />
+                  <DetailButton id={call.id} />
                   <ArchiveButton isArchived={isArchived()}/>
                 </div>
               </div>

@@ -1,13 +1,16 @@
+import CallService from "../services/CallService";
 import CallItem from "./CallItem";
+import { useState, useEffect } from "react";
 
 export const CallList = () => {
+  const [calls, setCalls] = useState<ICall[]>([]);
   // TODO be remove, only for design test
-  const note: INote = {
-    _id: 1,
+  /*const note: INote = {
+    id: "1",
     content: "Secret message",
   };
   const call: ICall = {
-    _id: "ddf97c38-bb70-4a9e-ae19-20c72b9b4d05",
+    id: "ddf97c38-bb70-4a9e-ae19-20c72b9b4d05",
     duration: 41898,
     is_archived: false,
     from: "+33156965939",
@@ -17,12 +20,29 @@ export const CallList = () => {
     via: "+33188833258",
     created_at: "2021-07-06T00:56:47.098Z",
     notes: [note],
-  };
+  };*/
   // TODO be remove, only for design test
+
+  // Retrieve call through API
+  const fetchCalls = (): void => {
+    CallService.getCalls(1, 20)
+      .then(({ data: { nodes } }: ApiDataType[] | any) => {
+        console.log(nodes);
+        setCalls(nodes)
+      })
+      .catch((err: Error) => console.log(err));
+  };
+
+  useEffect(() => {
+    fetchCalls()
+  }, [])
+
   return (
     <div className="phappy-call-list">
       <h1 className="title">Call list</h1>
-      <CallItem {...call} />
+      {calls.map((call: ICall) => (
+        <CallItem {...call} key={call.id} />
+      ))}
     </div>
   );
 };

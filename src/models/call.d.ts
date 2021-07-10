@@ -4,7 +4,7 @@
  * is “declaration merging” which means you can define the same interface several times and with each definition, the properties get merged
  */
 interface ICall {
-    _id: ID! // "unique ID of call"
+    id: ID! // "unique ID of call"
     direction: String! // "inbound" or "outbound" call
     from: String! // Caller's number
     to: String! // Callee's number
@@ -21,8 +21,7 @@ interface CallProps {
 }
 
 type ApiDataType = {
-    message: string
-    status: string
-    calls: ICall[]
-    call?: ICall
+    hasNextPage: boolean,
+    nodes: ICall[]
+    totalCount: number
 }
