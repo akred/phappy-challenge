@@ -16,13 +16,17 @@ It was bootstrapped with :
 ## Pre-requisites
 
 - Git
-- Node (__version 12 min required__)
+- Node (**version 12 min required**)
 - Yarn
 
 ## Project documentation
 
 It's mainly built with Typescript and the store is manage by `React context and hooks`
 The API calls are handled by axios and the token management is handle by the lovely plugin [Axios-auth-refresh](https://www.npmjs.com/package/axios-auth-refresh)
+
+**Note** : During the coding phase, I noticed that the component are render twice.
+It seems to be linked to CRA, which is a "normal" behavior on dev mode.
+Source : https://mariosfakiolas.com/blog/my-react-components-render-twice-and-drive-me-crazy/
 
 # Startup
 
