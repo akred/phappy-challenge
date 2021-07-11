@@ -30,7 +30,7 @@ export default function CallDetail() {
 
   useEffect(() => {
     fetchCall();
-  }, []);
+  });
 
   const history = useHistory();
 
@@ -45,7 +45,6 @@ export default function CallDetail() {
         <LoadingIcon />
       ) : !!call ? (
         <div>
-          <h2></h2>
           <article className="message is-primary">
             <div className="message-header">
               <p>Call ID : {call.id}</p>

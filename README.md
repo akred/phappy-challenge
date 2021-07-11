@@ -31,8 +31,12 @@ https://phappy-challenge.vercel.app/
 - Handle error cases from the API
 - Create more tests (jest + cypress), with continous integration
 - **Note** : During the coding phase, I noticed that components are render twice.
-It seems to be linked to CRA, which is a "normal" behavior on dev mode.
-Source : https://mariosfakiolas.com/blog/my-react-components-render-twice-and-drive-me-crazy/
+  It seems to be linked to CRA, which is a "normal" behavior on dev mode.
+  Source : https://mariosfakiolas.com/blog/my-react-components-render-twice-and-drive-me-crazy/
+- Missing steps :
+  - Listen to https://frontend-test-api.aircall.io/pusher/auth
+  - Sort by date the calls
+  - Add notes
 
 # Startup
 
