@@ -14,9 +14,14 @@ class CallService {
    * @param limit number of calls per page
    * @returns
    */
-  async getCalls(offset?: number, limit?: number): Promise<AxiosResponse<ApiDataType>> {
-    const calls: AxiosResponse<ApiDataType> = await apiService
-      .get<ApiDataType>(BASE_URL + "/calls", { params: { offset, limit } })
+  async getCalls(
+    offset?: number,
+    limit?: number
+  ): Promise<AxiosResponse<ApiDataType>> {
+    const calls: AxiosResponse<ApiDataType> = await apiService.get<ApiDataType>(
+      BASE_URL + "/calls",
+      { params: { offset, limit } }
+    );
     return calls;
   }
 
@@ -25,9 +30,11 @@ class CallService {
    * @param id
    * @returns
    */
-  async getCall(id: number) {
-    const result = await apiService.get(BASE_URL + `/calls/${id}`);
-    return result?.data;
+  async getCall(id: string) {
+    const call: AxiosResponse<ApiDataType> = await apiService.get<ApiDataType>(
+      BASE_URL + `/calls/${id}`
+    );
+    return call;
   }
 
   /**

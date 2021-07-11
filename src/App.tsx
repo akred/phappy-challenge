@@ -3,7 +3,12 @@ import Login from "./components/Login";
 import Logout from "./components/Logout";
 import CallList from "./components/CallList";
 import CallDetail from "./components/CallDetail";
-import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
+import {
+  BrowserRouter,
+  Switch,
+  Route,
+  Redirect,
+} from "react-router-dom";
 import AuthRoute from "./helpers/AuthRoute";
 import {
   LOGIN_URL,

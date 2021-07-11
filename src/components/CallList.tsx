@@ -29,7 +29,7 @@ export const CallList = () => {
   };*/
   // TODO be remove, only for design test
 
-  // Retrieve call through API
+  // Retrieve calls through API
   const fetchCalls = (): void => {
     CallService.getCalls(1, 20)
       .then(({ data: { nodes } }: ApiDataType[] | any) => {
