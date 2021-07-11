@@ -9,12 +9,13 @@ import ErrorMessage from "./ErrorMessage";
 
 export default function CallDetail() {
   const [call, setCall] = useState<ICall>();
-  const [isLoading, setIsLoading] = useState<boolean>(true);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
   const { id } = useParams();
 
   // Retrieve call through API
   const fetchCall = (): void => {
     console.log(id);
+    setIsLoading(true)
     CallService.getCall(id)
       .then(({ data }: CallProps | any) => {
         console.log(data);

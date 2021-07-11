@@ -55,12 +55,11 @@ class CallService {
    * @param id
    * @returns
    */
-  async archiveCall(id: number) {
-    return await apiService
-      .put(BASE_URL + `/calls/${id}/archive`)
-      .then((response) => {
-        return response.data;
-      });
+  async archiveCall(id: string) {
+    const call: AxiosResponse<ApiDataType> = await apiService.put<ApiDataType>(
+      BASE_URL + `/calls/${id}/archive`
+    );
+    return call;
   }
 }
 

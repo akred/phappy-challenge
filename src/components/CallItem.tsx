@@ -61,7 +61,7 @@ const CallItem = (call: ICall) => {
                 <div className="detail">
                   <div className="detail-line">{formatDetail()}</div>
                   <DetailButton id={call.id} />
-                  <ArchiveButton isArchived={isArchived()}/>
+                  <ArchiveButton id={call.id} isArchived={isArchived()}/>
                 </div>
               </div>
             </span>
