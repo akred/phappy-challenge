@@ -5,7 +5,6 @@ import createAuthRefreshInterceptor from "axios-auth-refresh";
  * ApiService
  * This service is an Api wrapper managing the JWT token expiration (we can use axios interceptor instead if we want :)
  * If it returns a 401 error (token expired), the refreshAuthLogic will be run, and the service retries to get the new token
- * TODO : need to refresh the page before expiration (10 min) !
  */
 class ApiService {
   instance: AxiosInstance;
@@ -19,6 +18,10 @@ class ApiService {
         ...(token && { Authorization: `Bearer ${token}` }),
       },
     });
+    /**
+     * This part can be removed as the endpoint don't return new token based on expired one
+     * Reminder : remove the package + update doc
+     */
     // Function that will be called to refresh authorization
     const refreshAuthLogic = (failedRequest: any) =>
       this.instance

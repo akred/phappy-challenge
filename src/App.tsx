@@ -16,8 +16,9 @@ import { useAuth } from "./helpers/AppContext";
 import AuthService from "./services/AuthService";
 
 export default function App() {
-  const { setIsAuthenticated } = useAuth()
-  setIsAuthenticated(AuthService.isAuthenticated())
+  const { setIsAuthenticated } = useAuth();
+  setIsAuthenticated(AuthService.isAuthenticated());
+  AuthService.refreshTokenBeforeExpiration();
   return (
     <div className="phappy-container container">
       <ProvideAuth>
