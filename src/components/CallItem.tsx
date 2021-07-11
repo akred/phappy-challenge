@@ -48,11 +48,9 @@ const CallItem : FC<CallItemProps> = ({ parentCallback, call }) => {
   };
 
   const archiveCall = (): void => {
-    console.log("Archive the call / callItem : "  + call.id)
     setIsLoading(true);
     CallService.archiveCall(call.id)
       .then(({ data: is_archived }: CallProps | any) => {
-        console.log(!is_archived);
         call.is_archived = !call.is_archived
         setIsLoading(isLoading);
         parentCallback();

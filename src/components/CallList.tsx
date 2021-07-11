@@ -9,7 +9,6 @@ export const CallList = () => {
   const [calls, setCalls] = useState<ICall[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const updateCalls = () => {
-    console.log("Archive the call / update list")
     setCalls(calls)
   }
   const hasCalls = () => {

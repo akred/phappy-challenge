@@ -19,11 +19,9 @@ export default function CallDetail() {
   useEffect(() => {
     // Retrieve call through API
     const fetchCall = (id: string): void => {
-      console.log(id);
       setIsLoading(true);
       CallService.getCall(id)
         .then(({ data }: CallProps | any) => {
-          console.log(data);
           setCall(data);
           setIsLoading(false);
         })
