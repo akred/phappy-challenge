@@ -12,10 +12,14 @@ export default function CallDetail() {
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const { id } = useParams();
 
+  const hasNotes = () => {
+    return call?.notes?.length !== 0;
+  };
+
   // Retrieve call through API
   const fetchCall = (): void => {
     console.log(id);
-    setIsLoading(true)
+    setIsLoading(true);
     CallService.getCall(id)
       .then(({ data }: CallProps | any) => {
         console.log(data);
@@ -30,7 +34,7 @@ export default function CallDetail() {
 
   useEffect(() => {
     fetchCall();
-  });
+  }, []);
 
   const history = useHistory();
 
@@ -60,15 +64,22 @@ export default function CallDetail() {
                 <li>Direction : {call.direction}</li>
                 <li>From : {call.from}</li>
                 <li>To : {call.to}</li>
-                <li>Duration : {moment(call.duration).format('H:mm:ss')}</li>
-                <li>Archived : {call.is_archived ? 'Yes' : 'No'}</li>
+                <li>Duration : {moment(call.duration).format("H:mm:ss")}</li>
+                <li>Archived : {call.is_archived ? "Yes" : "No"}</li>
                 <li>Via : {call.via}</li>
                 <li>
                   Created at :{" "}
                   {moment(call.created_at.toString()).format("MMMM DD, h:mm A")}
                 </li>
                 <li>
-                  Notes : <i>todo</i>
+                  Notes :
+                  {hasNotes() && (
+                    <ul>
+                      {call.notes.map((note: INote) => (
+                        <li key={note.id}>{note.content}</li>
+                      ))}
+                    </ul>
+                  )}
                 </li>
               </ul>
             </div>
