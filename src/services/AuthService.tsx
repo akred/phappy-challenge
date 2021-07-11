@@ -1,8 +1,8 @@
 import { apiService, BASE_URL, TOKEN } from "./ApiService";
 import isEmpty from "lodash/isEmpty";
 
-// We set abritary 59000 sec (10min - 10 sec)
-const REFRESH_TOKEN_TIMER = 59000;
+// We set abritary 590000 sec (10min - 10 sec)
+const REFRESH_TOKEN_TIMER = 590000;
 /**
  * AuthService
  * Provide actions such as login
