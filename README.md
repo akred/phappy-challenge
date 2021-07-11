@@ -43,7 +43,6 @@ https://phappy-challenge.vercel.app/
   - Routing
 - _Missing steps_ :
   - Listen to https://frontend-test-api.aircall.io/pusher/auth (can use [EventSource](https://developer.mozilla.org/fr/docs/Web/API/EventSource)
-  - Sort by date the calls
   - Add notes
   - Pagination
 
