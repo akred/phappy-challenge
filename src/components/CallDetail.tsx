@@ -5,6 +5,7 @@ import { useParams } from "react-router-dom";
 import { useHistory } from "react-router-dom";
 import { CALL_LIST_URL } from "../helpers/urls";
 import moment from "moment";
+import ErrorMessage from "./ErrorMessage";
 
 export default function CallDetail() {
   const [call, setCall] = useState<ICall>();
@@ -74,7 +75,7 @@ export default function CallDetail() {
           </article>
         </div>
       ) : (
-        <h2>No data available</h2>
+        <ErrorMessage />
       )}
     </div>
   );

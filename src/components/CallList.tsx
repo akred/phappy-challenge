@@ -2,7 +2,8 @@ import "./CallList.scss";
 import CallService from "../services/CallService";
 import CallItem from "./CallItem";
 import { useState, useEffect } from "react";
-import LoadingIcon from './icons/LoadingIcon'
+import LoadingIcon from "./icons/LoadingIcon";
+import ErrorMessage from "./ErrorMessage"
 
 export const CallList = () => {
   const [calls, setCalls] = useState<ICall[]>([]);
@@ -36,7 +37,7 @@ export const CallList = () => {
       ) : hasCalls() ? (
         calls.map((call: ICall) => <CallItem {...call} key={call.id} />)
       ) : (
-        <h2>No data available or session expired. <a href="/login">Please login again</a></h2>
+        <ErrorMessage />
       )}
     </div>
   );
