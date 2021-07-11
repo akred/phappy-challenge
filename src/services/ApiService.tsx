@@ -17,6 +17,21 @@ class ApiService {
         ...(token && { Authorization: `Bearer ${token}` }),
       },
     });
+    this.instance.interceptors.response.use(
+      (response) => {
+        return response;
+      },
+      async function (error) {
+        if (error.response.status === 401) {
+          console.log(
+            "Not able to refresh the token, please login again : " + error
+          );
+          // Need to found a solution to redirect
+          // history.push(LOGIN_URL);
+        }
+        return Promise.reject(error);
+      }
+    );
   }
 
   getAccessToken = () => {
