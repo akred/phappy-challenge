@@ -36,7 +36,7 @@ export const CallList = () => {
       ) : hasCalls() ? (
         calls.map((call: ICall) => <CallItem {...call} key={call.id} />)
       ) : (
-        <h2>No data available</h2>
+        <h2>No data available or session expired. <a href="/login">Please login again</a></h2>
       )}
     </div>
   );
