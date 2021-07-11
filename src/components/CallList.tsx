@@ -4,6 +4,9 @@ import { useState, useEffect } from "react";
 
 export const CallList = () => {
   const [calls, setCalls] = useState<ICall[]>([]);
+  const hasCalls = () => {
+    return calls?.length !== 0;
+  };
   // TODO be remove, only for design test
   /*const note: INote = {
     id: "1",
@@ -27,22 +30,23 @@ export const CallList = () => {
   const fetchCalls = (): void => {
     CallService.getCalls(1, 20)
       .then(({ data: { nodes } }: ApiDataType[] | any) => {
-        console.log(nodes);
-        setCalls(nodes)
+        setCalls(nodes);
       })
       .catch((err: Error) => console.log(err));
   };
 
   useEffect(() => {
-    fetchCalls()
-  }, [])
+    fetchCalls();
+  }, []);
 
   return (
     <div className="phappy-call-list">
       <h1 className="title">Call list</h1>
-      {calls.map((call: ICall) => (
-        <CallItem {...call} key={call.id} />
-      ))}
+      {hasCalls() ? (
+        calls.map((call: ICall) => <CallItem {...call} key={call.id} />)
+      ) : (
+        <h2>No data available</h2>
+      )}
     </div>
   );
 };
