@@ -12,6 +12,7 @@ It was bootstrapped with :
 - [Classnames](https://github.com/JedWatson/classnames)
 - [Moment](https://momentjs.com)
 - [React router](https://reactrouter.com/)
+- [React Paginate](https://www.npmjs.com/package/react-js-pagination)
 
 ## Pre-requisites
 
@@ -44,7 +45,6 @@ https://phappy-challenge.vercel.app/
 - _Missing steps_ :
   - Listen to https://frontend-test-api.aircall.io/pusher/auth (can use [EventSource](https://developer.mozilla.org/fr/docs/Web/API/EventSource)
   - Add notes
-  - Pagination
 
 # Startup
 

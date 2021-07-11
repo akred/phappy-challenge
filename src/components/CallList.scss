@@ -3,4 +3,14 @@
     text-align: center;
     margin-top: 50px;
   }
+  .pagination {
+    margin-top: 20px;
+  }
+  .selected {
+    .pagination-link {
+      background-color: #00d1b2;
+      border-color: #00d1b2;
+      color: #fff;
+    }
+  }
 }

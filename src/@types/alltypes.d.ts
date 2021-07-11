@@ -1,2 +1,2 @@
-declare module 'react-router-dom';
-declare module 'lodash';
+declare module "react-router-dom";
+declare module "lodash";
