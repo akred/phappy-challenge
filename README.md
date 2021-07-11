@@ -11,6 +11,7 @@ It was bootstrapped with :
 - [SASS 4.14.1](https://github.com/sass/node-sass)
 - [Classnames](https://github.com/JedWatson/classnames)
 - [Moment](https://momentjs.com)
+- [React router](https://reactrouter.com/)
 
 ## Pre-requisites
 
@@ -33,10 +34,18 @@ https://phappy-challenge.vercel.app/
 - **Note** : During the coding phase, I noticed that components are render twice.
   It seems to be linked to CRA, which is a "normal" behavior on dev mode.
   Source : https://mariosfakiolas.com/blog/my-react-components-render-twice-and-drive-me-crazy/
-- Missing steps :
+
+- _Tasks done_ :
+  - Login
+  - List the calls (only the first 20)
+  - Archive / unarchive call
+  - See call detail (with notes)
+  - Routing
+- _Missing steps_ :
   - Listen to https://frontend-test-api.aircall.io/pusher/auth
   - Sort by date the calls
   - Add notes
+  - Pagination
 
 # Startup
 

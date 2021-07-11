@@ -8,6 +8,10 @@ import ErrorMessage from "./ErrorMessage"
 export const CallList = () => {
   const [calls, setCalls] = useState<ICall[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(true);
+  const updateCalls = () => {
+    console.log("Archive the call / update list")
+    setCalls(calls)
+  }
   const hasCalls = () => {
     return calls?.length !== 0;
   };
@@ -35,7 +39,7 @@ export const CallList = () => {
       {isLoading ? (
         <LoadingIcon />
       ) : hasCalls() ? (
-        calls.map((call: ICall) => <CallItem {...call} key={call.id} />)
+        calls.map((call: ICall) => <CallItem call={call} parentCallback={updateCalls} key={call.id}  />)
       ) : (
         <ErrorMessage />
       )}

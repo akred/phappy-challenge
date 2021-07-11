@@ -12,9 +12,9 @@ const DetailButton = ({ id }: DetailButtonProps) => {
 
   const handleClick = (e: MouseEvent) => {
     e.preventDefault();
-    const pos = CALL_DETAIL_URL.lastIndexOf("/");
+    const pos = CALL_DETAIL_URL.lastIndexOf('/');
     const queryParam = CALL_DETAIL_URL.substring(pos + 1);
-    const routeWithId = CALL_DETAIL_URL.replace(queryParam, id);
+    const routeWithId = CALL_DETAIL_URL.replace(queryParam, id);;
     history.push(routeWithId);
   };
   return (
