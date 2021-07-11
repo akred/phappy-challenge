@@ -66,8 +66,8 @@ class AuthService {
             error: err,
             message: "Cannot refresh token, token is expired !",
           };
-        })
-    }, REFRESH_TOKEN_TIMER)
+        });
+    }, REFRESH_TOKEN_TIMER);
   }
 }
 

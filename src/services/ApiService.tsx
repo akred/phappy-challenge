@@ -17,6 +17,14 @@ class ApiService {
         ...(token && { Authorization: `Bearer ${token}` }),
       },
     });
+    // Function that will be called before each request
+    this.instance.interceptors.request.use(request => {
+      if (this.getAccessToken()) {
+        request.headers['Authorization'] = `Bearer ${this.getAccessToken()}`;
+      }
+      return request;
+    });
+    // Function that will be called after each response
     this.instance.interceptors.response.use(
       (response) => {
         return response;
