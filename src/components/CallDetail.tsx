@@ -16,25 +16,24 @@ export default function CallDetail() {
     return call?.notes?.length !== 0;
   };
 
-  // Retrieve call through API
-  const fetchCall = (): void => {
-    console.log(id);
-    setIsLoading(true);
-    CallService.getCall(id)
-      .then(({ data }: CallProps | any) => {
-        console.log(data);
-        setCall(data);
-        setIsLoading(false);
-      })
-      .catch((err: Error) => {
-        console.log(err);
-        setIsLoading(false);
-      });
-  };
-
   useEffect(() => {
-    fetchCall();
-  }, []);
+    // Retrieve call through API
+    const fetchCall = (id: string): void => {
+      console.log(id);
+      setIsLoading(true);
+      CallService.getCall(id)
+        .then(({ data }: CallProps | any) => {
+          console.log(data);
+          setCall(data);
+          setIsLoading(false);
+        })
+        .catch((err: Error) => {
+          console.log(err);
+          setIsLoading(false);
+        });
+    };
+    fetchCall(id);
+  }, [id]);
 
   const history = useHistory();
 
