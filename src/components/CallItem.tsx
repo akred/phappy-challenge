@@ -1,5 +1,5 @@
 import "./CallItem.scss";
-import CallIcon from "./CallIcon";
+import CallIcon from "./icons/CallIcon";
 import classNames from "classnames";
 import moment from "moment";
 import ArchiveButton from "./action-buttons/ArchiveButton"

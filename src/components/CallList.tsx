@@ -1,3 +1,4 @@
+import "./CallList.scss";
 import CallService from "../services/CallService";
 import CallItem from "./CallItem";
 import { useState, useEffect } from "react";
