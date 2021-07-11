@@ -1,5 +1,4 @@
 import axios, { AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios";
-import createAuthRefreshInterceptor from "axios-auth-refresh";
 
 /**
  * ApiService
@@ -18,23 +17,6 @@ class ApiService {
         ...(token && { Authorization: `Bearer ${token}` }),
       },
     });
-    /**
-     * This part can be removed as the endpoint don't return new token based on expired one
-     * Reminder : remove the package + update doc
-     */
-    // Function that will be called to refresh authorization
-    const refreshAuthLogic = (failedRequest: any) =>
-      this.instance
-        .post(baseURL + "/auth/refresh-token")
-        .then((tokenRefreshResponse) => {
-          localStorage.setItem(TOKEN, tokenRefreshResponse.data.access_token);
-          failedRequest.response.config.headers["Authorization"] =
-            "Bearer " + tokenRefreshResponse.data.token;
-          return Promise.resolve();
-        });
-
-    // Instantiate the interceptor (you can chain it as it returns the axios instance)
-    createAuthRefreshInterceptor(this.instance, refreshAuthLogic);
   }
 
   getAccessToken = () => {
