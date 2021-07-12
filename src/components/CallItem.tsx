@@ -20,7 +20,6 @@ const CallItem : FC<CallItemProps> = ({ parentCallback, call }) => {
   const hasNote = (): boolean => {
     return call?.notes.length !== 0;
   };
-
   const isArchived = (): boolean => {
     return call?.is_archived.valueOf();
   };
@@ -29,6 +28,9 @@ const CallItem : FC<CallItemProps> = ({ parentCallback, call }) => {
   };
   const isAnswered = (): boolean => {
     return call?.call_type === "answered";
+  };
+  const isVoicemail = (): boolean => {
+    return call?.call_type === "voicemail";
   };
 
   const formatDetail = (): string => {
@@ -67,7 +69,7 @@ const CallItem : FC<CallItemProps> = ({ parentCallback, call }) => {
         <div className="card-content">
           <div className="content">
             <span className="icon-text is-small">
-              <CallIcon disabled={isArchived()} incoming={isIncoming()} />
+              <CallIcon disabled={isArchived()} incoming={isIncoming()} voicemail={isVoicemail()}/>
               <div
                 className={classNames("sender", {
                   "has-text-grey": isArchived(),
