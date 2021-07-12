@@ -31,7 +31,7 @@ https://phappy-challenge.vercel.app/
 ## Improvments / Remarks
 
 - Handle error cases from the API
-- Create more tests (jest + cypress), with continous integration
+- Create more tests (jest + cypress)
 - **Note** : During the coding phase, I noticed that components are render twice.
   It seems to be linked to CRA, which is a "normal" behavior on dev mode.
   Source : https://mariosfakiolas.com/blog/my-react-components-render-twice-and-drive-me-crazy/
