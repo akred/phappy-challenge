@@ -14,24 +14,15 @@ const FilterDropdown = ({
   filterTypes,
   parentCallback,
 }: FilterDropdownProps) => {
-  const [isClicked, setIsClicked] = useState<boolean>(false);
-
-  const handleClick = (e: MouseEvent) => {
-    e.preventDefault();
-    setIsClicked(!isClicked)
-  }
   return (
     <div
-      className={classNames("phappy-filter-dropdown dropdown", {
-        "is-active": isClicked
-      })}
+      className="phappy-filter-dropdown dropdown is-hoverable"
     >
       <div className="dropdown-trigger">
         <button
           className="button"
           aria-haspopup="true"
           aria-controls="dropdown-menu3"
-          onClick={handleClick}
         >
           <span>Filter</span>
           <span className="icon is-small">
