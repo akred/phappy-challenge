@@ -4,6 +4,9 @@ import AuthService from '../services/AuthService'
 import { LOGIN_URL } from '../helpers/urls'
 import { useAuth } from "../helpers/AppContext";
 
+/**
+ * Logout : route '/logout' created to clean session
+ */
 const Logout = () => {
     const { setIsAuthenticated } = useAuth();
     useEffect(() => {

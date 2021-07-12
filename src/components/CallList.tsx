@@ -15,7 +15,6 @@ export const CallList = () => {
   const [perPage] = useState(20);
   const [pageCount, setPageCount] = useState(0);
   const [filterTypes, setFilterTypes] = useState<string[]>([]);
-  const [selectedFilter, setSelectedFilter] = useState<string>(ALL_FILTER_TYPE);
 
   const sortCallsByDesc = (unorderedCalls: ICall[]) => {
     const orderedCalls = unorderedCalls.sort((a, b) =>
@@ -119,6 +118,7 @@ export const CallList = () => {
     );
   };
 
+  // Used for the pagination
   useEffect(() => {
     fetchCalls();
   }, [offset]);

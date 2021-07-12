@@ -2,10 +2,9 @@ import { ReactNode, createContext, useContext, useState } from "react";
 import AuthService from "../services/AuthService";
 
 /**
- * This file manage the redirection is user is authenticated or not
+ * This file manage the redirection depending on if user is authenticated or not
  * Source : https://usehooks.com/useAuth/
  */
-
 type ProvideAuthProps = {
   children: ReactNode;
 };

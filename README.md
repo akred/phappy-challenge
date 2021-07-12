@@ -26,14 +26,13 @@ It was bootstrapped with :
 - It's mainly built with Typescript and the store is manage by `React context and hooks`
 - The API calls are handled thanks to an axios wrapper (apiService).
 - You can test directly the application online here :
-https://phappy-challenge.vercel.app/
+  https://phappy-challenge.vercel.app/
 
 <p>
-<img src="https://user-images.githubusercontent.com/3393418/125238311-5d906900-e2e7-11eb-9be5-581f85aad680.png" alt="call_login" width=300>
-<img src="https://user-images.githubusercontent.com/3393418/125238316-5e28ff80-e2e7-11eb-8a72-f9d1f525d6d9.png" alt="call_list" width=300>
-<img src="https://user-images.githubusercontent.com/3393418/125238486-97fa0600-e2e7-11eb-87a4-42086964f7fc.png" alt="call_detail" width=300>
+<img src="https://user-images.githubusercontent.com/3393418/125238311-5d906900-e2e7-11eb-9be5-581f85aad680.png" alt="call_login" width=250>
+<img src="https://user-images.githubusercontent.com/3393418/125238316-5e28ff80-e2e7-11eb-8a72-f9d1f525d6d9.png" alt="call_list" width=250>
+<img src="https://user-images.githubusercontent.com/3393418/125238486-97fa0600-e2e7-11eb-87a4-42086964f7fc.png" alt="call_detail" width=250>
 </p>
-
 
 ## Improvments / Remarks
 
@@ -50,6 +49,7 @@ https://phappy-challenge.vercel.app/
   - See call detail (with notes)
   - Routing
   - Pagination
+  - Filtering
 - _Missing steps_ :
   - Listen to https://frontend-test-api.aircall.io/pusher/auth (can use [EventSource](https://developer.mozilla.org/fr/docs/Web/API/EventSource))
   - Add call notes
