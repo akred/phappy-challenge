@@ -57,8 +57,8 @@ export default function CallDetail() {
             </div>
             <div className="message-body content">
               <ul>
-                <li>ID : {call.id}</li>
                 <li>Direction : {call.direction}</li>
+                <li>Call type : {call.call_type}</li>
                 <li>From : {call.from}</li>
                 <li>To : {call.to}</li>
                 <li>Duration : {moment(call.duration).format("H:mm:ss")}</li>
