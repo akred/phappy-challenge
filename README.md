@@ -93,4 +93,5 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 
 - [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 - [React documentation](https://reactjs.org/).
+- [Enzyme & typescript](https://rjzaworski.com/2018/03/testing-with-typescript-react-and-enzyme)
 - Special thanks to [fettblog.eu](https://fettblog.eu/) for the understanding of React.js & Typescript :)
