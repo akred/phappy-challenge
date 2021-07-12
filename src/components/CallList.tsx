@@ -28,6 +28,7 @@ export const CallList = () => {
 
   // Function use for the pagination
   const handlePageClick = (e: any) => {
+    setIsLoading(true)
     const selectedPage = e.selected;
     setOffset(selectedPage * perPage);
   };
@@ -57,15 +58,6 @@ export const CallList = () => {
   return (
     <div className="phappy-call-list">
       <h1 className="title">Call list</h1>
-      {isLoading ? (
-        <LoadingIcon />
-      ) : hasCalls() ? (
-        calls.map((call: ICall) => (
-          <CallItem call={call} parentCallback={updateCalls} key={call.id} />
-        ))
-      ) : (
-        <ErrorMessage />
-      )}
       {hasCalls() && (
         <ReactPaginate
           previousLabel={"prev"}
@@ -79,6 +71,15 @@ export const CallList = () => {
           onPageChange={handlePageClick}
           containerClassName={"pagination pagination-list is-small"}
         />
+      )}
+      {isLoading ? (
+        <LoadingIcon />
+      ) : hasCalls() ? (
+        calls.map((call: ICall) => (
+          <CallItem call={call} parentCallback={updateCalls} key={call.id} />
+        ))
+      ) : (
+        <ErrorMessage />
       )}
     </div>
   );
