@@ -11,6 +11,7 @@ It was bootstrapped with :
 - [SASS 4.14.1](https://github.com/sass/node-sass)
 - [Classnames](https://github.com/JedWatson/classnames)
 - [Moment](https://momentjs.com)
+- [Axios](https://github.com/axios/axios)
 - [React router](https://reactrouter.com/)
 - [React Paginate](https://www.npmjs.com/package/react-js-pagination)
 
@@ -22,11 +23,17 @@ It was bootstrapped with :
 
 ## Project documentation
 
-It's mainly built with Typescript and the store is manage by `React context and hooks`
-
-The API calls are handled thanks to an axios wrapper (apiService).
-You can test directly the application online here :
+- It's mainly built with Typescript and the store is manage by `React context and hooks`
+- The API calls are handled thanks to an axios wrapper (apiService).
+- You can test directly the application online here :
 https://phappy-challenge.vercel.app/
+
+<p>
+<img src="https://user-images.githubusercontent.com/3393418/125238311-5d906900-e2e7-11eb-9be5-581f85aad680.png" alt="call_login" width=300>
+<img src="https://user-images.githubusercontent.com/3393418/125238316-5e28ff80-e2e7-11eb-8a72-f9d1f525d6d9.png" alt="call_list" width=300>
+<img src="https://user-images.githubusercontent.com/3393418/125238486-97fa0600-e2e7-11eb-87a4-42086964f7fc.png" alt="call_detail" width=300>
+</p>
+
 
 ## Improvments / Remarks
 
@@ -38,13 +45,14 @@ https://phappy-challenge.vercel.app/
 
 - _Tasks done_ :
   - Login
-  - List the calls (only the first 20)
+  - List the calls
   - Archive / unarchive call
   - See call detail (with notes)
   - Routing
+  - Pagination
 - _Missing steps_ :
-  - Listen to https://frontend-test-api.aircall.io/pusher/auth (can use [EventSource](https://developer.mozilla.org/fr/docs/Web/API/EventSource)
-  - Add notes
+  - Listen to https://frontend-test-api.aircall.io/pusher/auth (can use [EventSource](https://developer.mozilla.org/fr/docs/Web/API/EventSource))
+  - Add call notes
 
 # Startup
 
@@ -85,4 +93,4 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 
 - [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 - [React documentation](https://reactjs.org/).
-- Special thanks to [fettblog.eu](https://fettblog.eu/) for the understanding of React.js :)
+- Special thanks to [fettblog.eu](https://fettblog.eu/) for the understanding of React.js & Typescript :)
