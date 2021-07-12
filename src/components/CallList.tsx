@@ -143,7 +143,6 @@ export const CallList = () => {
       ) : (
         <ErrorMessage />
       )}
-      {renderPagination()}
     </div>
   );
 };
