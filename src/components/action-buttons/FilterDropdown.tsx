@@ -3,7 +3,6 @@ import classNames from "classnames";
 import "./FilterDropdown.scss";
 type FilterDropdownProps = {
   filterTypes: string[];
-  selectedFilter: string;
   parentCallback: (selectedFilter: string) => void;
 };
 
@@ -45,7 +44,7 @@ const FilterDropdown = ({
           {filterTypes.map((value, index) => {
             return (
               <a
-                href="/#"
+                href="#"
                 className="dropdown-item"
                 key={index}
                 onClick={() => parentCallback(value)}

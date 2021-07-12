@@ -1,3 +1,5 @@
+import { LOGIN_URL } from "../helpers/urls";
+
 /**
  * Error Message
  */
@@ -5,7 +7,7 @@ const ErrorMessage = () => {
   return (
     <h2>
       No data available or session expired.{" "}
-      <a href="/login">Please login again</a>
+      <a href={LOGIN_URL}>Please login again</a>
     </h2>
   );
 };

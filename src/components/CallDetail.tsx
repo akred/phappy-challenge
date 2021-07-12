@@ -7,6 +7,10 @@ import { CALL_LIST_URL } from "../helpers/urls";
 import moment from "moment";
 import ErrorMessage from "./ErrorMessage";
 
+/**
+ * This component corresponds to a little modal which contains the detail of a call
+ * (Direction, call type, date, ...)
+ */
 export default function CallDetail() {
   const [call, setCall] = useState<ICall>();
   const [isLoading, setIsLoading] = useState<boolean>(false);
