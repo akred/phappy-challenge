@@ -37,17 +37,15 @@ export const CallList = () => {
   const fetchCalls = (): void => {
     CallService.getCalls(offset, perPage)
       .then(
-        ({ data: { nodes, totalCount, hasNextPage } }: ApiDataType[] | any) => {
+        ({ data: { nodes, totalCount } }: ApiDataType[] | any) => {
           const pageCount = Math.ceil(totalCount / perPage);
           setPageCount(pageCount);
           const sortedCalls = sortCallsByDesc(nodes);
           setCalls(sortedCalls);
-          setIsLoading(false);
         }
       )
       .catch((err: Error) => {
         console.log(err);
-        setIsLoading(false);
       })
       .finally(() => setIsLoading(false));
   };

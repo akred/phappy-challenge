@@ -1,4 +1,5 @@
 import axios, { AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios";
+import { LOGIN_URL } from "../helpers/urls";
 
 /**
  * ApiService
@@ -31,11 +32,10 @@ class ApiService {
       },
       async function (error) {
         if (error.response.status === 401) {
-          console.log(
-            "Not able to refresh the token, please login again : " + error
-          );
+          console.log("Not able to refresh the token, please login again");
           // Need to found a solution to redirect
           // history.push(LOGIN_URL);
+          window.location.href = LOGIN_URL
         }
         return Promise.reject(error);
       }
