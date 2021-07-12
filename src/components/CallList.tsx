@@ -48,8 +48,28 @@ export const CallList = () => {
       .catch((err: Error) => {
         console.log(err);
         setIsLoading(false);
-      });
+      })
+      .finally(() => setIsLoading(false));
   };
+
+  const renderPagination = () => {
+    return hasCalls() && (
+      <ReactPaginate
+        previousLabel={"prev"}
+        nextLabel={"next"}
+        breakLabel={"..."}
+        pageLinkClassName={"pagination-link"}
+        breakClassName={"pagination-break"}
+        pageCount={pageCount}
+        marginPagesDisplayed={2}
+        pageRangeDisplayed={5}
+        onPageChange={handlePageClick}
+        previousLinkClassName={"pagination-link"}
+        nextLinkClassName={"pagination-link"}
+        containerClassName={"pagination pagination-list is-small"}
+      />
+    )
+  }
 
   useEffect(() => {
     fetchCalls();
@@ -58,20 +78,7 @@ export const CallList = () => {
   return (
     <div className="phappy-call-list">
       <h1 className="title">Call list</h1>
-      {hasCalls() && (
-        <ReactPaginate
-          previousLabel={"prev"}
-          nextLabel={"next"}
-          breakLabel={"..."}
-          pageLinkClassName={"pagination-link"}
-          breakClassName={"pagination-break"}
-          pageCount={pageCount}
-          marginPagesDisplayed={2}
-          pageRangeDisplayed={5}
-          onPageChange={handlePageClick}
-          containerClassName={"pagination pagination-list is-small"}
-        />
-      )}
+      {renderPagination()}
       {isLoading ? (
         <LoadingIcon />
       ) : hasCalls() ? (
@@ -81,6 +88,7 @@ export const CallList = () => {
       ) : (
         <ErrorMessage />
       )}
+      {renderPagination()}
     </div>
   );
 };
