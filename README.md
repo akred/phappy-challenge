@@ -29,9 +29,9 @@ It was bootstrapped with :
 https://phappy-challenge.vercel.app/
 
 <p>
-<img src="https://user-images.githubusercontent.com/3393418/125238311-5d906900-e2e7-11eb-9be5-581f85aad680.png" alt="call_login" width=300>
-<img src="https://user-images.githubusercontent.com/3393418/125238316-5e28ff80-e2e7-11eb-8a72-f9d1f525d6d9.png" alt="call_list" width=300>
-<img src="https://user-images.githubusercontent.com/3393418/125238486-97fa0600-e2e7-11eb-87a4-42086964f7fc.png" alt="call_detail" width=300>
+<img src="https://user-images.githubusercontent.com/3393418/125238311-5d906900-e2e7-11eb-9be5-581f85aad680.png" alt="call_login" width=250>
+<img src="https://user-images.githubusercontent.com/3393418/125238316-5e28ff80-e2e7-11eb-8a72-f9d1f525d6d9.png" alt="call_list" width=250>
+<img src="https://user-images.githubusercontent.com/3393418/125238486-97fa0600-e2e7-11eb-87a4-42086964f7fc.png" alt="call_detail" width=250>
 </p>
 
 
